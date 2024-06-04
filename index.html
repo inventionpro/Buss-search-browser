@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Buss search</title>
+    <style>
+      body {
+  background-color: black;
+  color: white;
+  font-family: Arial;
+}
+
+img[src=""] {
+  display: none;
+}
+
+.result {
+  margin: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+p {
+  margin: 2px;
+}
+</style>
+  </head>
+  <body>
+    <input id="in"><button id="ser">Search</button>
+    <div id="con"></div>
+    <script>
+      document.getElementById('ser').onclick = function(){
+  fetch('https://api.fsh.plus/buss?q='+document.getElementById('in').value)
+    .then(async e => {
+      e = await e.json();
+      let c = '';
+      e.forEach(t => {
+        c += `<div class="result" style="border-left: 2px ${t.color} solid">
+  <img src="${t.favicon}" width="20" height="20">
+  <div>
+    <p>${t.title} - ${t.url}</p>
+    <p>${t.text}
+  </div>
+</div>`;
+      })
+      document.getElementById('con').innerHTML = c
+    })
+}
+    </script>
+  </body>
+</html>
