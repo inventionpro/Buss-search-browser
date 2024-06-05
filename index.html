@@ -47,13 +47,13 @@
             document.getElementById('info').innerHTML = e.length + ' results'
             let c = '';
             e.forEach(t => {
-              c += `<div class="result" style="border-left: 2px ${t.color} solid">
-        <img src="${t.favicon}" width="20" height="20">
-        <div>
-          <p>${t.title} - ${t.url}</p>
-          <p>${t.text}
-        </div>
-      </div>`;
+              c += `<div class="result"${t.color ? ' style="border-left: 2px ${t.color} solid"' : ''}>
+  <img src="${t.favicon}" width="20" height="20">
+  <div>
+    <p>${t.title} - ${t.url}</p>
+    <p>${t.text}
+  </div>
+</div>`;
             })
             document.getElementById('con').innerHTML = c
           })
