@@ -36,12 +36,13 @@
   </head>
   <body>
     <input id="in"><button id="ser">Search</button>
+    <label>New?:<input type="checkbox" id="new"></label>
     <p id="info"></p>
     <div id="con"></div>
     <script>
       function search() {
         document.getElementById('info').innerHTML = 'searching...'
-        fetch('https://api.fsh.plus/buss?q='+document.getElementById('in').value)
+        fetch('https://api.fsh.plus/buss?q='+document.getElementById('in').value+'&new='+document.getElementById('new').checked)
           .then(async e => {
             e = await e.json();
             document.getElementById('info').innerHTML = e.length + ' results'
