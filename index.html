@@ -51,7 +51,7 @@
               c += `<div class="result"${t.color.length ? ' style="border-left: 2px '+t.color+' solid"' : ''}>
   ${t.favicon?`<img src="${t.favicon}" width="20" height="20">`:''}
   <div>
-    <p>${t.quality ? '⭐ ' : ''}${t.title.slice(0, 40)}${t.title.slice(0, 40) !== t.title ? '...' : ''}${t.title?' · ':''}${t.url}</p>
+    <p>${t.quality ? (document.getElementById('new').checked?['','✔️ ','⭐ '][t.quality]:'⭐ ') : ''}${t.title.slice(0, 40)}${t.title.slice(0, 40) !== t.title ? '...' : ''}${t.title?' · ':''}${t.url}</p>
     <p>${t.desc??t.text.slice(0,20)}</p>
   </div>
 </div>`;
