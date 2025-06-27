@@ -42,7 +42,7 @@
     <script>
       function search() {
         document.getElementById('info').innerHTML = 'searching...'
-        fetch('https://api.fsh.plus/buss?q='+document.getElementById('in').value+'&new='+document.getElementById('new').checked)
+        fetch('https://api.fsh.plus/buss?q='+encodeURIComponent(document.getElementById('in').value)+'&new='+document.getElementById('new').checked)
           .then(res=>res.json())
           .then(res=>{
             document.getElementById('info').innerHTML = res.results.length + ' results'
