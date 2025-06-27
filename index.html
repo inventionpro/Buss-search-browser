@@ -45,7 +45,7 @@
         fetch('https://api.fsh.plus/buss?q='+document.getElementById('in').value+'&new='+document.getElementById('new').checked)
           .then(res=>res.json())
           .then(res=>{
-            document.getElementById('info').innerHTML = res.length + ' results'
+            document.getElementById('info').innerHTML = res.results.length + ' results'
             let c = '';
             res.results.forEach(t => {
               c += `<div class="result"${t.color.length ? ' style="border-left: 2px '+t.color+' solid"' : ''}>
