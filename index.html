@@ -43,11 +43,11 @@
       function search() {
         document.getElementById('info').innerHTML = 'searching...'
         fetch('https://api.fsh.plus/buss?q='+document.getElementById('in').value+'&new='+document.getElementById('new').checked)
-          .then(async e => {
-            e = await e.json();
+          .then(res=>res.json())
+          .then(res=>{
             document.getElementById('info').innerHTML = e.length + ' results'
             let c = '';
-            e.forEach(t => {
+            res.results.forEach(t => {
               c += `<div class="result"${t.color.length ? ' style="border-left: 2px '+t.color+' solid"' : ''}>
   ${t.favicon?`<img src="${t.favicon}" width="20" height="20">`:''}
   <div>
